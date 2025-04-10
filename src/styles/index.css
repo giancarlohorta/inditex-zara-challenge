@@ -1,0 +1,16 @@
+@import "./_reset.css";
+@import "./_variables.css";
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: var(--font-base);
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+  line-height: 1.5;
+  font-weight: 300;
+}
