@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import DefaultLayout from "../DefaultLayout";
 import { useProductDetails } from "../../../hook/useProductDetails";
 import Typography from "../../atoms/Typography";
@@ -8,12 +8,17 @@ import clsx from "clsx";
 import { useState } from "react";
 import SpecsList from "../../organisms/SpecsList";
 import ListItem from "../../organisms/ListItem";
+import Button from "../../atoms/Button";
+import { useCart } from "../../../context/CartContext";
 import style from "./ProductDetails.module.css";
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const { data, isLoading, error } = useProductDetails(id as string);
+
+  const { addToCart } = useCart();
 
   const [selected, setSelected] = useState({
     capacity: "",
@@ -36,10 +41,31 @@ const ProductDetails = () => {
     }
   };
 
+  const handleAddToCart = () => {
+    if (data) {
+      const product = {
+        id: data.id,
+        name: data.name,
+        imageUrl: selected.imageUrl,
+        color: selected.colorName,
+        capacity: selected.capacity,
+        price: selected.price,
+        quantity: 1,
+      };
+      addToCart(product);
+      navigate("/cart");
+    }
+  };
+
   return (
     <DefaultLayout>
       <div className={style["back-container"]}>
-        <Link to="/" className={style["back-button"]}>
+        <Button
+          // disabled={!selected.capacity}
+          type="link"
+          width={56}
+          link="/"
+        >
           <BackIcon />
           <Typography
             content="BACK"
@@ -47,8 +73,9 @@ const ProductDetails = () => {
             weight="light"
             color="primary"
             as="p"
+            className={style["back-text"]}
           />
-        </Link>
+        </Button>
       </div>
       {isLoading && <p>Loading...</p>}
       {error && <p>Erro ao carregar os dados.</p>}
@@ -81,7 +108,6 @@ const ProductDetails = () => {
                 color="primary"
                 as="p"
               />
-
               <Typography
                 content="Storage ¿hOW MUCH SPACE DO YOU NEED?"
                 size="md"
@@ -116,7 +142,6 @@ const ProductDetails = () => {
                   </button>
                 ))}
               </div>
-
               <Typography
                 content="color. pick your favourite."
                 size="md"
@@ -160,13 +185,16 @@ const ProductDetails = () => {
                 as="p"
                 className={style["color-name"]}
               />
-              <button
-                type="button"
-                className={style["add-button"]}
-                disabled={!selected.capacity}
-              >
-                ADD TO CART
-              </button>
+              <div className={style["add-button"]}>
+                <Button
+                  disabled={!selected.capacity}
+                  width={380}
+                  type="primary"
+                  onClick={handleAddToCart}
+                >
+                  ADD TO CART
+                </Button>
+              </div>
             </div>
           </div>
           <div className={style["specs-content"]}>

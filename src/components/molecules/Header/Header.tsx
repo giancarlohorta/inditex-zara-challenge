@@ -3,7 +3,12 @@ import BagIcon from "../../../assets/bag-icon.svg?react";
 import ButtonLink from "../../atoms/ButtonLink";
 import style from "./Header.module.css";
 
-const Header = () => {
+interface HeaderProps {
+  cart?: boolean;
+  count?: number;
+}
+
+const Header = ({ cart, count }: HeaderProps) => {
   return (
     <header aria-label="Main Header" className={style.header}>
       <ButtonLink
@@ -12,13 +17,15 @@ const Header = () => {
         className={style.logo}
       />
 
-      <nav aria-label="main navegation">
-        <ButtonLink
-          to="/cart"
-          icon={<BagIcon aria-hidden="true" />}
-          count={0}
-        />
-      </nav>
+      {cart && (
+        <nav aria-label="main navegation">
+          <ButtonLink
+            to="/cart"
+            icon={<BagIcon aria-hidden="true" />}
+            count={count}
+          />
+        </nav>
+      )}
     </header>
   );
 };

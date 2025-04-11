@@ -1,0 +1,31 @@
+.button {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 300;
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary {
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+}
+
+.primary:disabled {
+  background-color: var(--color-disabled);
+  color: var(--color-senary);
+}
+
+.secondary {
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+  border: 0.5px solid var(--color-primary);
+}
+
+.link {
+  color: var(--color-primary);
+  background-color: transparent;
+  border: none;
+}
