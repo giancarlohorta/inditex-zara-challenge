@@ -1,4 +1,4 @@
-import { Product, ProductDetails } from "../types/product";
+import { Product, ProductDetailsData } from "../types/product";
 import { api } from "./api";
 
 export const getProducts = async (search: string = ""): Promise<Product[]> => {
@@ -11,8 +11,8 @@ export const getProducts = async (search: string = ""): Promise<Product[]> => {
 
 export const getProductDetails = async (
   id: string
-): Promise<ProductDetails> => {
-  const { data } = await api.get<ProductDetails>(`/products/${id}`);
+): Promise<ProductDetailsData> => {
+  const { data } = await api.get<ProductDetailsData>(`/products/${id}`);
 
   return data;
 };
