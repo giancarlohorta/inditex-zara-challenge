@@ -3,3 +3,15 @@
   grid-template-columns: repeat(5, 1fr);
   gap: -0.5px;
 }
+
+@media (max-width: 83.4rem) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 39.3rem) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -3,5 +3,8 @@
   --color-secondary: #fff;
   --color-tertiary: #79736d;
   --color-quaternary: #aaaaaa;
+  --color-quinary: #cccccc;
+  --color-senary: #c2bfbc;
+  --color-disabled: #f3f2f2;
   --font-base: Helvetica, Arial, sans-serif;
 }

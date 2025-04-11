@@ -24,7 +24,7 @@ const Item = ({ item }: ItemProps) => {
       <div className={style.content}>
         <Typography
           content={formatText(item.brand)}
-          size="sm"
+          size="xs"
           weight="light"
           color="tertiary"
           as="p"
