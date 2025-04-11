@@ -1,0 +1,66 @@
+.container {
+  max-width: 170rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 4.8rem 10rem;
+}
+.main-content {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+.details-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.storage-title {
+  margin-top: 6.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.container-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.capacity-button {
+  width: 9.5rem;
+  height: 6.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-quinary);
+  border-right: none;
+}
+
+.capacity-button:last-child {
+  border-right: 1px solid var(--color-quinary);
+}
+
+.color-title {
+  margin-top: 4rem;
+  margin-bottom: 2.4rem;
+}
+
+.color-button {
+  border: 1px solid var(--color-quinary);
+  padding: 2px;
+  margin-right: 1.6rem;
+}
+
+.add-button {
+  width: 100%;
+  max-width: 38rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--color-secondary);
+  padding: 2rem 0;
+  background-color: var(--color-primary);
+  margin-top: 6.4rem;
+}
+
+.add-button:disabled {
+  background-color: var(--color-disabled);
+  color: var(--color-senary);
+}

@@ -4,7 +4,7 @@ import style from "./Typography.module.css";
 interface TypographyProps {
   content: string;
   className?: string;
-  size?: "sm" | "md" | "lg" | "xl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
   weight?: "light" | "regular" | "bold";
   color?: "primary" | "secondary" | "tertiary";
   as?: "p" | "span" | "h1" | "h2" | "h3";
