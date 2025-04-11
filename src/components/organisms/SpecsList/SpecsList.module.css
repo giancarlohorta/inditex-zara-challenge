@@ -1,0 +1,16 @@
+.specs-list {
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.spec-item {
+  display: grid;
+  grid-template-columns: minmax(auto, 300px) 1fr;
+  align-items: start;
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--color-primary);
+}
+
+.spec-item:last-child {
+  border-bottom: 1px solid var(--color-primary);
+}

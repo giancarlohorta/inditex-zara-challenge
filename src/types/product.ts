@@ -28,7 +28,7 @@ interface StorageOptions {
   capacity: string;
 }
 
-export interface ProductDetails extends Product {
+export interface ProductDetailsData extends Product {
   description: string;
   colorOptions: ColorOption[];
   specs: Specs;

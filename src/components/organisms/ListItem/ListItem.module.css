@@ -4,6 +4,14 @@
   gap: -0.5px;
 }
 
+.list-row {
+  overflow-x: auto;
+  display: flex;
+  margin-top: 4rem;
+  margin-bottom: 10.4rem;
+  padding-bottom: 4rem;
+}
+
 @media (max-width: 83.4rem) {
   .list {
     grid-template-columns: repeat(2, 1fr);

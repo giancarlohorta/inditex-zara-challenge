@@ -1,18 +1,44 @@
 .container {
-  max-width: 170rem;
+  max-width: 120rem;
   width: 100%;
   margin: 0 auto;
   padding: 4.8rem 10rem;
 }
+
+.back-container {
+  max-width: 120rem;
+  width: 100%;
+  padding: 0 10rem;
+}
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 3.15px;
+  padding: 5px;
+}
+.image-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image {
+  max-width: 100%;
+  display: block;
+}
 .main-content {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15.4rem;
 }
 .details-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  margin-left: 5.5rem;
 }
 .storage-title {
   margin-top: 6.4rem;
@@ -38,6 +64,10 @@
   border-right: 1px solid var(--color-quinary);
 }
 
+.active {
+  border: 1px solid var(--color-primary) !important;
+}
+
 .color-title {
   margin-top: 4rem;
   margin-bottom: 2.4rem;
@@ -47,6 +77,11 @@
   border: 1px solid var(--color-quinary);
   padding: 2px;
   margin-right: 1.6rem;
+}
+
+.color-name {
+  margin-top: 0.8rem;
+  height: 1.8rem;
 }
 
 .add-button {
@@ -63,4 +98,8 @@
 .add-button:disabled {
   background-color: var(--color-disabled);
   color: var(--color-senary);
+}
+
+.similar-content {
+  margin-top: 15.4rem;
 }
