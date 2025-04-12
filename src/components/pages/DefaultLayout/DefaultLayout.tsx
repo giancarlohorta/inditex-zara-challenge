@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import Header from "../../molecules/Header";
 import { useLocation } from "react-router-dom";
-import { useCart } from "../../../context/CartContext";
+import { useCart } from "../../../hook/useCart";
 
 interface DefaultLayoutProps {
   children: ReactNode;

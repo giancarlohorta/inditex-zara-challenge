@@ -1,71 +1,25 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import DefaultLayout from "../DefaultLayout";
 import { useProductDetails } from "../../../hook/useProductDetails";
 import Typography from "../../atoms/Typography";
 import { formatText } from "../../../utils";
 import BackIcon from "../../../assets/back.svg?react";
 import clsx from "clsx";
-import { useState } from "react";
 import SpecsList from "../../organisms/SpecsList";
 import ListItem from "../../organisms/ListItem";
 import Button from "../../atoms/Button";
-import { useCart } from "../../../context/CartContext";
 import style from "./ProductDetails.module.css";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
 
-  const { data, isLoading, error } = useProductDetails(id as string);
-
-  const { addToCart } = useCart();
-
-  const [selected, setSelected] = useState({
-    capacity: "",
-    hexCode: "",
-    price: 0,
-    imageUrl: "",
-    colorName: "",
-  });
-
-  const handleSelected = (newValues: Partial<typeof selected>) => {
-    if (data) {
-      setSelected((prev) => ({
-        capacity: prev.capacity || data.storageOptions[0].capacity,
-        price: prev.price || data.storageOptions[0].price,
-        hexCode: prev.hexCode || data.colorOptions[0].hexCode,
-        imageUrl: prev.imageUrl || data.colorOptions[0].imageUrl,
-        colorName: prev.colorName || data.colorOptions[0].name,
-        ...newValues,
-      }));
-    }
-  };
-
-  const handleAddToCart = () => {
-    if (data) {
-      const product = {
-        id: data.id,
-        name: data.name,
-        imageUrl: selected.imageUrl,
-        color: selected.colorName,
-        capacity: selected.capacity,
-        price: selected.price,
-        quantity: 1,
-      };
-      addToCart(product);
-      navigate("/cart");
-    }
-  };
+  const { data, isLoading, error, selected, handleSelected, handleAddToCart } =
+    useProductDetails(id as string);
 
   return (
     <DefaultLayout>
       <div className={style["back-container"]}>
-        <Button
-          // disabled={!selected.capacity}
-          type="link"
-          width={56}
-          link="/"
-        >
+        <Button type="link" width={56} link="/">
           <BackIcon />
           <Typography
             content="BACK"

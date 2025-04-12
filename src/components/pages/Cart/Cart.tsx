@@ -1,5 +1,5 @@
-import { useCart } from "../../../context/CartContext";
 import DefaultLayout from "../DefaultLayout";
+import { useCart } from "../../../hook/useCart";
 import Button from "../../atoms/Button";
 import style from "./Cart.module.css";
 import Typography from "../../atoms/Typography";
