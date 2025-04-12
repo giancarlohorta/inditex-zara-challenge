@@ -14,12 +14,13 @@ interface selectedType {
   colorName: string;
 }
 
-export const useProductDetails = (id: string) => {
+export const useProductDetails = (id?: string) => {
   const navigate = useNavigate();
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["productDetails", id],
-    queryFn: () => getProductDetails(id),
+    queryFn: () => getProductDetails(id!),
+    enabled: !!id,
   });
 
   const { addToCart } = useCart();
