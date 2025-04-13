@@ -30,6 +30,7 @@
   max-width: 100%;
   height: 100%;
   display: block;
+  max-width: 26rem;
 }
 
 .main-content {
@@ -151,7 +152,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-right: 5.5rem;
   }
+  .product-image {
+    max-width: 33.7rem;
+  }
+
   .main-content {
     flex-direction: row;
     justify-content: flex-start;
@@ -159,6 +165,7 @@
   }
   .details-content {
     max-width: 36.2rem;
+    margin-top: 0;
   }
   .add-button {
     max-width: 26rem;
@@ -179,6 +186,11 @@
     align-items: center;
     margin-bottom: 15.4rem;
   }
+
+  .product-image {
+    max-width: 51rem;
+  }
+
   .details-content {
     max-width: 38rem;
   }

@@ -8,14 +8,14 @@ import { formatText } from "../../../utils";
 const Cart = () => {
   const { cart, totalCartItems, removeFromCart, totalCart } = useCart();
 
-  const borderStyle = totalCartItems
-    ? {
-        borderTop: "1px solid var(--color-primary)",
-      }
-    : undefined;
+  // const borderStyle = totalCartItems
+  //   ? {
+  //       borderTop: "1px solid var(--color-primary)",
+  //     }
+  //   : undefined;
   return (
     <DefaultLayout>
-      <div className={style.container} style={borderStyle}>
+      <div className={style.container}>
         <Typography
           content={`CART (${totalCartItems})`}
           size="xl"
@@ -66,10 +66,6 @@ const Cart = () => {
           ))}
         </div>
         <div className={style.footer}>
-          <Button width={260} type="secondary" link="/">
-            CONTINUE SHOPPING
-          </Button>
-
           {totalCartItems > 0 && (
             <div className={style.checkout}>
               <Typography
@@ -88,16 +84,21 @@ const Cart = () => {
                 as="p"
                 className={style["total-price"]}
               />
-
-              <Button
-                // disabled={!selected.capacity}
-                width={260}
-                type="primary"
-                onClick={() => alert("Checkout")}
-              >
-                PAY
-              </Button>
             </div>
+          )}
+          <Button className={style["footer-button"]} type="secondary" link="/">
+            CONTINUE SHOPPING
+          </Button>
+
+          {totalCartItems > 0 && (
+            <Button
+              // disabled={!selected.capacity}
+              className={style["footer-button"]}
+              type="primary"
+              onClick={() => alert("Checkout")}
+            >
+              PAY
+            </Button>
           )}
         </div>
       </div>
