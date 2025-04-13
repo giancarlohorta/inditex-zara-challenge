@@ -6,7 +6,7 @@ import style from "./Button.module.css";
 interface ButtonProps {
   disabled?: boolean;
   onClick?: () => void;
-  width?: number;
+  className?: string;
   type?: "primary" | "secondary" | "link";
   children: ReactNode;
   link?: string;
@@ -15,17 +15,16 @@ interface ButtonProps {
 const Button = ({
   disabled = false,
   onClick,
-  width,
+  className,
   type = "primary",
   link,
   children,
 }: ButtonProps) => {
-  const buttonClass = clsx(style.button, style[type]);
-  const styleProps = width ? { maxWidth: `${width}px` } : undefined;
+  const buttonClass = clsx(style.button, style[type], className);
 
   if (link) {
     return (
-      <Link to={link} className={buttonClass} style={styleProps}>
+      <Link to={link} className={buttonClass}>
         {children}
       </Link>
     );
@@ -35,7 +34,6 @@ const Button = ({
     <button
       type="button"
       className={buttonClass}
-      style={styleProps}
       disabled={disabled}
       onClick={onClick}
     >

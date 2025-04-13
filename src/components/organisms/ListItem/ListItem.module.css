@@ -1,6 +1,6 @@
 .list {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 1fr;
   border-top: 0.5px solid var(--color-primary);
   border-left: 0.5px solid var(--color-primary);
   margin-top: 4.8rem;
@@ -14,14 +14,26 @@
   border-left: 0.5px solid var(--color-primary);
 }
 
-@media (max-width: 83.4rem) {
+@media (min-width: 680px) {
   .list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 39.3rem) {
+@media (min-width: 980px) {
   .list {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1290px) {
+  .list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1580px) {
+  .list {
+    grid-template-columns: repeat(5, 1fr);
   }
 }

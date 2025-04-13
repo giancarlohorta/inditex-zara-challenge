@@ -21,7 +21,7 @@ const ProductDetails = () => {
   return (
     <DefaultLayout>
       <div className={style["back-container"]}>
-        <Button type="link" width={56} link="/">
+        <Button type="link" className={style["back-button"]} link="/">
           <BackIcon />
           <Typography
             content="BACK"
@@ -102,7 +102,7 @@ const ProductDetails = () => {
                   ))}
                 </div>
                 <Typography
-                  content="color. pick your favourite."
+                  content="COLOR. PiCK YOUR FAVORITE"
                   size="md"
                   weight="light"
                   color="primary"
@@ -144,16 +144,14 @@ const ProductDetails = () => {
                   as="p"
                   className={style["color-name"]}
                 />
-                <div className={style["add-button"]}>
-                  <Button
-                    disabled={!selected.capacity}
-                    width={380}
-                    type="primary"
-                    onClick={handleAddToCart}
-                  >
-                    ADD TO CART
-                  </Button>
-                </div>
+                <Button
+                  disabled={!selected.capacity}
+                  className={style["add-button"]}
+                  type="primary"
+                  onClick={handleAddToCart}
+                >
+                  ADD TO CART
+                </Button>
               </div>
             </div>
             <div className={style["specs-content"]}>

@@ -5,21 +5,15 @@
   max-width: 170rem;
   width: 100%;
   margin: 0 auto;
-  padding: 2.8rem 4rem;
+  padding: 2.8rem 1.6rem;
 }
 .logo {
   width: 100%;
   max-width: 7.4rem;
 }
 
-@media (max-width: 83.4rem) {
+@media (min-width: 834px) {
   .header {
     padding: 2.8rem 4rem;
-  }
-}
-
-@media (max-width: 39.3rem) {
-  .header {
-    padding: 2.8rem 1.6rem;
   }
 }

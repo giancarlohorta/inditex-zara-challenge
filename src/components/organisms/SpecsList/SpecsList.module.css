@@ -5,7 +5,7 @@
 
 .spec-item {
   display: grid;
-  grid-template-columns: minmax(auto, 30rem) 1fr;
+  grid-template-columns: minmax(auto, 15rem) 1fr;
   align-items: start;
   padding: 1.6rem 0;
   border-top: 1px solid var(--color-primary);
@@ -15,8 +15,8 @@
   border-bottom: 1px solid var(--color-primary);
 }
 
-@media (max-width: 393px) {
+@media (min-width: 834px) {
   .spec-item {
-    grid-template-columns: minmax(auto, 15rem) 1fr;
+    grid-template-columns: minmax(auto, 30rem) 1fr;
   }
 }
