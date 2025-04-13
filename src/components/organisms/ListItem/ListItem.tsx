@@ -9,8 +9,12 @@ interface ListItemProps {
 }
 
 const ListItem = ({ list, row }: ListItemProps) => {
+  const isRow = row ?? false;
   return (
-    <section className={clsx(row ? style["list-row"] : style.list)}>
+    <section
+      className={clsx(isRow ? style["list-row"] : style.list)}
+      aria-label={isRow ? "Related products" : "Product list"}
+    >
       {list.map((item) => (
         <Item item={item} key={item.id} />
       ))}

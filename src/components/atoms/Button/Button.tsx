@@ -36,6 +36,7 @@ const Button = ({
       className={buttonClass}
       disabled={disabled}
       onClick={onClick}
+      aria-disabled={disabled}
     >
       {children}
     </button>

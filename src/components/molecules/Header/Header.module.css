@@ -12,6 +12,12 @@
   max-width: 7.4rem;
 }
 
+.count {
+  margin-left: 0.6rem;
+  margin-top: 0.35rem;
+  font-size: 1.6rem;
+}
+
 @media (min-width: 834px) {
   .header {
     padding: 2.8rem 4rem;

@@ -37,14 +37,17 @@ const Input = ({ placeholder, onEnter, className = "" }: InputProps) => {
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         className={style.input}
+        aria-label={placeholder || "Input"}
       />
       {value && (
         <button
           type="button"
           onClick={handleClear}
           className={style["clear-button"]}
+          aria-label="Clear input"
+          title="Clear input"
         >
-          <ClearIcon />
+          <ClearIcon aria-hidden="true" focusable="false" />
         </button>
       )}
     </div>

@@ -15,6 +15,7 @@ const Item = ({ item }: ItemProps) => {
     <Link
       to={`/product/${item.id}`}
       key={item.id}
+      role="link"
       aria-labelledby={`title-${item.id}`}
       className={style.item}
       onMouseEnter={() => setIsHovered(true)}
@@ -23,8 +24,9 @@ const Item = ({ item }: ItemProps) => {
       <div className={style["image-container"]}>
         <img
           src={item.imageUrl}
-          alt={`Imagem do ${item.name}`}
+          alt={`${item.name} image`}
           className={style.image}
+          loading="lazy"
         />
       </div>
       <div className={style.content}>

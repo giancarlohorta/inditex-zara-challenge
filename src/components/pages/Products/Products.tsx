@@ -1,4 +1,4 @@
-import { useProducts } from "../../../hook/UseProducts";
+import { useProducts } from "../../../hook/useProducts";
 import DefaultLayout from "../DefaultLayout";
 import SearchArea from "../../organisms/SearchArea";
 import ListItem from "../../organisms/ListItem";
@@ -13,9 +13,9 @@ const Products = () => {
       <div className={style.container}>
         <SearchArea count={count} onEnter={handleSearch} />
 
-        {error && <p>Erro ao carregar os dados.</p>}
-        {isEmpty && <h2>Nenhum produto encontrado</h2>}
-        {isLoading && <p>Carregando...</p>}
+        {error && <p>Error loading data.</p>}
+        {isEmpty && <h2>No products found</h2>}
+        {isLoading && <p>Loading...</p>}
         {data && <ListItem list={data} />}
       </div>
     </DefaultLayout>
