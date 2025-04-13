@@ -1,7 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import Item from "./Item";
 import { mockList } from "../../../mocks/products";
+import style from "../../atoms/Typography/Typography.module.css";
 
 const renderItem = () =>
   render(
@@ -32,5 +33,19 @@ describe("Item component", () => {
     const link = screen.getByRole("link");
     expect(link).toHaveAttribute("role", "link");
     expect(link).toHaveAttribute("aria-labelledby", "title-SMG-A05S");
+  });
+
+  it("mouseover changes text color", () => {
+    renderItem();
+
+    const itemElement = screen.getByRole("link");
+    fireEvent.mouseEnter(itemElement);
+
+    const element = screen.getByText(/Galaxy A05s/i);
+
+    expect(element).toHaveClass(style["color-secondary"]);
+
+    fireEvent.mouseLeave(itemElement);
+    expect(element).toHaveClass(style["color-primary"]);
   });
 });

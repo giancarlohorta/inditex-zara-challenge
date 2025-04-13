@@ -37,7 +37,7 @@ const Input = ({ placeholder, onEnter, className = "" }: InputProps) => {
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         className={style.input}
-        aria-label={placeholder || "Input"}
+        aria-label={placeholder}
       />
       {value && (
         <button

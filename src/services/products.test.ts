@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import MockAdapter from "axios-mock-adapter";
 import { api } from "./api";
 import { getProducts, getProductDetails } from "./products";
@@ -42,8 +42,12 @@ describe("products service", () => {
   });
 
   it("should throw error if request fails", async () => {
+    const consoleErrorMock = vi
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
     mock.onGet("/products").reply(500);
 
     await expect(getProducts()).rejects.toThrowError();
+    consoleErrorMock.mockRestore();
   });
 });

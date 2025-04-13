@@ -8,11 +8,6 @@ import { formatText } from "../../../utils";
 const Cart = () => {
   const { cart, totalCartItems, removeFromCart, totalCart } = useCart();
 
-  // const borderStyle = totalCartItems
-  //   ? {
-  //       borderTop: "1px solid var(--color-primary)",
-  //     }
-  //   : undefined;
   return (
     <DefaultLayout>
       <div className={style.container}>
@@ -95,7 +90,7 @@ const Cart = () => {
               // disabled={!selected.capacity}
               className={style["footer-button"]}
               type="primary"
-              onClick={() => alert("Checkout")}
+              onClick={() => alert("Payment successful!")}
             >
               PAY
             </Button>
