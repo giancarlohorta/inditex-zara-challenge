@@ -39,23 +39,23 @@ Follows Atomic Design:
 ```bash
 src/
 ├── components/
-│ ├── atoms/
-│ │ ├── Button/
-│ │ ├── Input/
-│ │ └── Typography/
-│ ├── molecules/
-│ │ ├── Header/
-│ │ └── Item/
-│ ├── organisms/
-│ │ ├── ListItem/
-│ │ ├── ScrollSimilarProducts/
-│ │ ├── SearchArea/
-│ │ └── SpecsList/
-│ ├── pages/
-│ │ ├── Cart/
-│ │ ├── DefaultLayout/
-│ │ ├── ProductDetails/
-│ └ └── Products/
+│   ├── atoms/
+│   │   ├── Button/
+│   │   ├── Input/
+│   │   └── Typography/
+│   ├── molecules/
+│   │   ├── Header/
+│   │   └── Item/
+│   ├── organisms/
+│   │   ├── ListItem/
+│   │   ├── ScrollSimilarProducts/
+│   │   ├── SearchArea/
+│   │   └── SpecsList/
+│   └── pages/
+│       ├── Cart/
+│       ├── DefaultLayout/
+│       ├── ProductDetails/
+│       └── Products/
 ├── context/
 ├── hook/
 ├── mocks/

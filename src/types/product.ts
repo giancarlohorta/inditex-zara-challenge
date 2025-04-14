@@ -6,9 +6,9 @@ export interface Product {
   name: string;
 }
 
-interface ColorOption {
+export interface ColorOption {
   hexCode: string;
-  imageUrl: string;
+  imageUrl?: string;
   name: string;
 }
 
@@ -44,4 +44,14 @@ export interface CartItem {
   color: string;
   capacity: string;
   quantity: number;
+}
+
+export interface SelectedType {
+  id: string;
+  name: string;
+  capacity: string;
+  hexCode: string;
+  price: number;
+  imageUrl?: string;
+  colorName: string;
 }

@@ -1,6 +1,8 @@
+import FilterColor from "../../molecules/FilterColor/FilterColor";
 import Input from "../../atoms/Input";
 import Typography from "../../atoms/Typography";
 import style from "./SearchArea.module.css";
+import { useState } from "react";
 
 interface SearchAreaProps {
   count: number;
@@ -8,17 +10,23 @@ interface SearchAreaProps {
 }
 
 const SearchArea = ({ count, onEnter }: SearchAreaProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <section aria-labelledby="search-heading">
       <Input placeholder={"Search for a smartphone..."} onEnter={onEnter} />
-      <Typography
-        content={`${count} RESULTS`}
-        size="sm"
-        weight="light"
-        color="primary"
-        as="p"
-        className={style["search-result"]}
-      />
+      <div className={style["info-container"]}>
+        {!isOpen && (
+          <Typography
+            content={`${count} RESULTS`}
+            size="sm"
+            weight="light"
+            color="primary"
+            as="p"
+            className={style["search-result"]}
+          />
+        )}
+        <FilterColor onIsOpen={(state) => setIsOpen(state)} />
+      </div>
     </section>
   );
 };

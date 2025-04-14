@@ -3,16 +3,7 @@ import { getProductDetails } from "../services/products";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "./useCart";
-
-interface selectedType {
-  id: string;
-  name: string;
-  capacity: string;
-  hexCode: string;
-  price: number;
-  imageUrl: string;
-  colorName: string;
-}
+import { SelectedType } from "../types/product";
 
 export const useProductDetails = (id?: string) => {
   const navigate = useNavigate();
@@ -25,7 +16,7 @@ export const useProductDetails = (id?: string) => {
 
   const { addToCart } = useCart();
 
-  const [selected, setSelected] = useState<selectedType>({
+  const [selected, setSelected] = useState<SelectedType>({
     id: "",
     name: "",
     capacity: "",
@@ -35,7 +26,7 @@ export const useProductDetails = (id?: string) => {
     colorName: "",
   });
 
-  const handleSelected = (newValues: Partial<selectedType>) => {
+  const handleSelected = (newValues: Partial<SelectedType>) => {
     if (data) {
       setSelected((prev) => ({
         id: prev.id || data.id,

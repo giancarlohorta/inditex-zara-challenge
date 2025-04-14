@@ -1,0 +1,39 @@
+.filter {
+  display: block;
+  margin-left: auto;
+}
+.color-container {
+  display: flex;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.open-button {
+  padding: 1.65rem 0;
+}
+.clear-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.clear-button svg {
+  transform: scale(0.9);
+}
+
+@media (min-width: 834px) {
+  .filter {
+    display: none;
+  }
+}

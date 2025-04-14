@@ -2,27 +2,45 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import SearchArea from "./SearchArea";
 import { vi } from "vitest";
 
-describe("SearchArea component", () => {
-  it("should call onEnter with the correct value when the Enter key is pressed", () => {
-    const onEnterMock = vi.fn();
+describe("SearchArea", () => {
+  const setup = (count = 0, onEnter = vi.fn()) => {
+    render(<SearchArea count={count} onEnter={onEnter} />);
+    const input = screen.getByRole("textbox");
+    return { input, onEnter };
+  };
 
-    render(<SearchArea count={0} onEnter={onEnterMock} />);
-    const inputElement = screen.getByRole("textbox");
+  describe("Input behavior", () => {
+    it("calls onEnter with correct value on Enter key", () => {
+      const { input, onEnter } = setup();
 
-    fireEvent.change(inputElement, { target: { value: "Samsung" } });
-    fireEvent.keyDown(inputElement, { key: "Enter", code: "Enter" });
+      fireEvent.change(input, { target: { value: "Samsung" } });
+      fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
 
-    expect(onEnterMock).toHaveBeenCalledWith("Samsung");
-  });
-  it("renders the input and results text", () => {
-    render(<SearchArea count={3} onEnter={vi.fn()} />);
-
-    const input = screen.getByRole("textbox", {
-      name: /search for a smartphone/i,
+      expect(onEnter).toHaveBeenCalledWith("Samsung");
     });
-    const results = screen.getByText(/3 results/i);
 
-    expect(input).toBeInTheDocument();
-    expect(results).toBeInTheDocument();
+    it("renders input with correct placeholder", () => {
+      const { input } = setup();
+      expect(input).toHaveAttribute(
+        "placeholder",
+        "Search for a smartphone..."
+      );
+    });
+  });
+
+  describe("Results display", () => {
+    it("displays result count text when filter is closed", () => {
+      setup(3);
+      expect(screen.getByText(/3 results/i)).toBeInTheDocument();
+    });
+
+    it("hides result count when filter is opened", () => {
+      setup(3);
+
+      const filterToggle = screen.getByRole("button", { name: /filtar/i });
+      fireEvent.click(filterToggle);
+
+      expect(screen.queryByText(/3 results/i)).not.toBeInTheDocument();
+    });
   });
 });

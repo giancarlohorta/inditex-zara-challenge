@@ -7,8 +7,9 @@ import BackIcon from "../../../assets/back.svg?react";
 import clsx from "clsx";
 import SpecsList from "../../organisms/SpecsList";
 import Button from "../../atoms/Button";
-import style from "./ProductDetails.module.css";
 import ScrollSimilarProducts from "../../organisms/ScrollSimilarProducts";
+import ButtonColor from "../../atoms/ButtonColor";
+import style from "./ProductDetails.module.css";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -109,30 +110,12 @@ const ProductDetails = () => {
                 />
                 <div className={style["container-buttons"]}>
                   {data.colorOptions.map((color) => (
-                    <button
+                    <ButtonColor
                       key={color.name}
-                      className={clsx(
-                        style["color-button"],
-                        selected.hexCode === color.hexCode && style["active"]
-                      )}
-                      onClick={() =>
-                        handleSelected({
-                          hexCode: color.hexCode,
-                          imageUrl: color.imageUrl,
-                          colorName: color.name,
-                        })
-                      }
-                      aria-label={color.name}
-                    >
-                      <span
-                        style={{
-                          backgroundColor: color.hexCode,
-                          width: "20px",
-                          height: "20px",
-                          display: "block",
-                        }}
-                      ></span>
-                    </button>
+                      color={color}
+                      selected={selected}
+                      onSelected={handleSelected}
+                    />
                   ))}
                 </div>
                 <Typography

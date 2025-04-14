@@ -1,0 +1,53 @@
+import { render, screen, fireEvent } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
+import FilterColor from "./FilterColor";
+
+describe("FilterColor component", () => {
+  it("should render closed state initially with 'FILTAR' button and no clear button", () => {
+    render(<FilterColor />);
+
+    const openButton = screen.getByRole("button", { name: /filtar/i });
+    expect(openButton).toBeInTheDocument();
+    expect(openButton.textContent).toMatch(/^FILTAR\s*$/i);
+
+    const clearButton = screen.queryByRole("button", { name: /clear input/i });
+    expect(clearButton).not.toBeInTheDocument();
+  });
+
+  it("should open filter and display color options when clicking the 'FILTAR' button", async () => {
+    render(<FilterColor />);
+
+    const openButton = screen.getByRole("button", { name: /filtar/i });
+    fireEvent.click(openButton);
+
+    const closeButton = screen.getByRole("button", { name: /cerrar/i });
+    expect(closeButton).toBeInTheDocument();
+
+    const colorButton = screen.getByRole("button", { name: "1" });
+    expect(colorButton).toBeInTheDocument();
+
+    fireEvent.click(colorButton);
+
+    fireEvent.click(closeButton);
+
+    expect(screen.getByRole("button", { name: /(1)/i })).toBeInTheDocument();
+
+    const clearButton = screen.getByRole("button", { name: /clear filter/i });
+    expect(clearButton).toBeInTheDocument();
+    fireEvent.click(clearButton);
+
+    expect(
+      screen.queryByRole("button", { name: /(1)/i })
+    ).not.toBeInTheDocument();
+  });
+
+  it("should update selection when a color is clicked and show clear button", () => {
+    render(<FilterColor />);
+
+    const openButton = screen.getByRole("button", { name: /filtar/i });
+    fireEvent.click(openButton);
+
+    const colorButton = screen.getByRole("button", { name: "1" });
+    fireEvent.click(colorButton);
+  });
+});

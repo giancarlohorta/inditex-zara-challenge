@@ -1,5 +1,5 @@
 .item {
-  min-width: 36.1rem;
+  min-width: 100%;
   padding: 1.6rem;
   display: flex;
   flex-direction: column;
@@ -47,6 +47,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (min-width: 393px) {
+  .item {
+    min-width: 36.1rem;
+  }
 }
 
 @media (min-width: 680px) {
