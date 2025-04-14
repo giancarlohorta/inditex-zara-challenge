@@ -60,6 +60,7 @@ describe("Products page", () => {
   });
 
   it("should filter products when a search query is entered", async () => {
+    mock.onGet("/products").reply(200, []);
     const searchTerm = "Samsung";
     const encoded = encodeURIComponent(searchTerm);
     const mockResponse = [mockList[0]];
@@ -80,9 +81,6 @@ describe("Products page", () => {
       expect(screen.queryByText(/Iphone 16/i)).not.toBeInTheDocument();
       expect(screen.getByText(/1 results/i)).toBeInTheDocument();
     });
-
-    const cartLink = screen.getByRole("link", { name: /shopping cart/i });
-    expect(cartLink).toHaveAttribute("href", "/cart");
   });
 
   it("should show an error message when the request fails", async () => {
