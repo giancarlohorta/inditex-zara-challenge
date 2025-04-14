@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { formatText, humanizeKey, formatSpecList } from "./index";
+import { formatText, humanizeKey, formatSpecList, getClientX } from "./index";
 
 import { mockProductDetailsData } from "../mocks/productDetails";
 
@@ -40,5 +40,22 @@ describe("formatSpecList", () => {
     expect(Object.keys(result)).toHaveLength(
       3 + Object.keys(mockProductDetailsData.specs).length
     );
+  });
+});
+
+describe("getClientX", () => {
+  it("should return clientX for a mouse event", () => {
+    const mouseEvent = { clientX: 200 } as MouseEvent;
+    expect(getClientX(mouseEvent)).toBe(200);
+  });
+
+  it("should return clientX for a touch event", () => {
+    const fakeTouchEvent = {
+      touches: [{ clientX: 300 }],
+    } as unknown as TouchEvent;
+
+    Object.setPrototypeOf(fakeTouchEvent, TouchEvent.prototype);
+
+    expect(getClientX(fakeTouchEvent)).toBe(300);
   });
 });

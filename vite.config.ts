@@ -6,13 +6,21 @@ import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   plugins: [react(), svgr()],
+  build: {
+    minify: "esbuild",
+  },
   test: {
     globals: true,
     environment: "jsdom",
     setupFiles: "./src/setupTests.ts",
-
     coverage: {
-      exclude: ["**/index.tsx"],
+      include: ["src/**/*.{ts,tsx}"],
+      exclude: [
+        "**/index.tsx",
+        "src/App.{ts,tsx}",
+        "src/main.{ts,tsx}",
+        "src/types/*.{ts,tsx}",
+      ],
     },
   },
 });

@@ -71,4 +71,30 @@ describe("Cart", () => {
 
     expect(alertMock).toHaveBeenCalledWith("Payment successful!");
   });
+
+  it("should render empty cart state without PAY button and with CONTINUE SHOPPING", () => {
+    render(
+      <MemoryRouter initialEntries={["/cart"]}>
+        <CartContext.Provider
+          value={{
+            ...mockContextValue,
+            cart: [],
+            totalCart: 0,
+            totalCartItems: 0,
+          }}
+        >
+          <Cart />
+        </CartContext.Provider>
+      </MemoryRouter>
+    );
+
+    const payButton = screen.queryByText("PAY");
+    expect(payButton).not.toBeInTheDocument();
+    const continueShoppingButton = screen.getByRole("link", {
+      name: /CONTINUE SHOPPING/i,
+    });
+    expect(continueShoppingButton).toBeInTheDocument();
+    expect(screen.getByText("CART (0)")).toBeInTheDocument();
+    expect(screen.queryByText(/TOTAL/i)).not.toBeInTheDocument();
+  });
 });

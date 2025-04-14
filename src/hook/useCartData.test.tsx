@@ -63,12 +63,32 @@ describe("useCartData", () => {
     });
 
     act(() => {
-      result.current.addToCart(repeatedItem); // quantity 2
+      result.current.addToCart(repeatedItem);
     });
 
     expect(result.current.cart).toEqual([{ ...mockCartProduct, quantity: 4 }]);
     expect(result.current.totalCart).toBe(4000);
     expect(result.current.totalCartItems).toBe(4);
+  });
+
+  it("should treat items with different colors as separate and increment quantity accordingly", () => {
+    const { result } = renderHook(() => useCartData());
+
+    const itemDefault = mockCartProduct;
+    const itemRed = { ...mockCartProduct, color: "RED" };
+
+    act(() => {
+      result.current.addToCart(itemDefault);
+      result.current.addToCart(itemRed);
+      result.current.addToCart(itemRed);
+    });
+
+    expect(result.current.cart).toEqual([
+      { ...itemDefault },
+      { ...itemRed, quantity: 4 },
+    ]);
+    expect(result.current.totalCart).toBe(6000);
+    expect(result.current.totalCartItems).toBe(6);
   });
 
   it("should remove item by id", () => {

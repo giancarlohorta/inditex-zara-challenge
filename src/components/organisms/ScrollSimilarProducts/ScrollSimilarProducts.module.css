@@ -1,0 +1,32 @@
+.similar-list {
+  margin-top: 4rem;
+  position: relative;
+  overflow-x: scroll;
+  margin-left: calc(-50vw + 50%);
+  padding-left: calc((100vw - 112rem) / 2);
+  margin-right: calc(-50vw + 50%);
+  padding-right: calc((100vw - 112rem) / 2);
+}
+
+.similar-list::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scrollbar {
+  position: relative;
+  height: 1px;
+  background: var(--color-quinary);
+  margin-top: 4rem;
+  overflow: hidden;
+  margin-bottom: 10rem;
+}
+
+.custom-thumb {
+  height: 100%;
+  background: var(--color-primary);
+  width: 15rem;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}

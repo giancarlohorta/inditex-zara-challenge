@@ -6,13 +6,11 @@ import { formatText } from "../../../utils";
 import BackIcon from "../../../assets/back.svg?react";
 import clsx from "clsx";
 import SpecsList from "../../organisms/SpecsList";
-import ListItem from "../../organisms/ListItem";
 import Button from "../../atoms/Button";
 import style from "./ProductDetails.module.css";
-import { useRef } from "react";
+import ScrollSimilarProducts from "../../organisms/ScrollSimilarProducts";
 
 const ProductDetails = () => {
-  const scrollbar = useRef(null);
   const { id } = useParams();
 
   const { data, isLoading, error, selected, handleSelected, handleAddToCart } =
@@ -36,7 +34,7 @@ const ProductDetails = () => {
 
       <div className={style.container}>
         {isLoading && <p>Loading...</p>}
-        {error && <p>Erro ao carregar os dados.</p>}
+        {error && <p>Error loading data.</p>}
         {data && (
           <>
             <div className={style["main-content"]}>
@@ -124,6 +122,7 @@ const ProductDetails = () => {
                           colorName: color.name,
                         })
                       }
+                      aria-label={color.name}
                     >
                       <span
                         style={{
@@ -172,13 +171,7 @@ const ProductDetails = () => {
                 color="primary"
                 as="h2"
               />
-              <div className={style["similar-list"]} ref={scrollbar}>
-                <ListItem list={data.similarProducts} row />
-              </div>
-
-              <div className={style["custom-scrollbar"]}>
-                <div className={style["custom-thumb"]}></div>
-              </div>
+              <ScrollSimilarProducts list={data.similarProducts} />
             </div>
           </>
         )}

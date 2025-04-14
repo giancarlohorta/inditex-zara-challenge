@@ -10,14 +10,21 @@
 .logo {
   width: 100%;
   max-width: 7.4rem;
+  padding: 0 !important;
 }
 
 .count {
   margin-left: 0.6rem;
   margin-top: 0.35rem;
   font-size: 1.6rem;
+  padding: 0 !important;
 }
 
+@media (min-width: 834px) {
+  .header {
+    padding: 2.8rem 4rem;
+  }
+}
 @media (min-width: 834px) {
   .header {
     padding: 2.8rem 4rem;

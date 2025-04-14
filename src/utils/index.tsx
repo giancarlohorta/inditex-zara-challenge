@@ -15,3 +15,6 @@ export const formatSpecList = (productData: ProductDetailsData) => {
     ...productData.specs,
   };
 };
+
+export const getClientX = (e: MouseEvent | TouchEvent): number =>
+  e instanceof TouchEvent ? e.touches[0].clientX : e.clientX;
