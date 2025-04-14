@@ -1,10 +1,10 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import FilterColor from "./FilterColor";
 
 describe("FilterColor component", () => {
   it("should render closed state initially with 'FILTAR' button and no clear button", () => {
-    render(<FilterColor />);
+    render(<FilterColor onIsOpen={() => {}} />);
 
     const openButton = screen.getByRole("button", { name: /filtar/i });
     expect(openButton).toBeInTheDocument();
@@ -15,10 +15,12 @@ describe("FilterColor component", () => {
   });
 
   it("should open filter and display color options when clicking the 'FILTAR' button", async () => {
-    render(<FilterColor />);
+    const mockOnIsOpen = vi.fn();
+    render(<FilterColor onIsOpen={mockOnIsOpen} />);
 
     const openButton = screen.getByRole("button", { name: /filtar/i });
     fireEvent.click(openButton);
+    expect(mockOnIsOpen).toHaveBeenCalledWith(true);
 
     const closeButton = screen.getByRole("button", { name: /cerrar/i });
     expect(closeButton).toBeInTheDocument();
@@ -42,7 +44,7 @@ describe("FilterColor component", () => {
   });
 
   it("should update selection when a color is clicked and show clear button", () => {
-    render(<FilterColor />);
+    render(<FilterColor onIsOpen={() => {}} />);
 
     const openButton = screen.getByRole("button", { name: /filtar/i });
     fireEvent.click(openButton);
