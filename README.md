@@ -36,6 +36,7 @@ Follows Atomic Design:
 
 - **Fully responsive and accessible following modern web standards**
 
+```bash
 src/
 ├── components/
 │ ├── atoms/
@@ -62,6 +63,7 @@ src/
 ├── styles/
 ├── types/
 └── utils/
+```
 
 ## ⚙️ Available Scripts
 
