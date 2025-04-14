@@ -51,10 +51,10 @@ src/
 │ │ ├── ScrollSimilarProducts/
 │ │ ├── SearchArea/
 │ │ └── SpecsList/
-│ └── pages/
-│ | ├── Cart/
-│ | ├── DefaultLayout/
-│ | ├── ProductDetails/
+│ ├── pages/
+│ │ ├── Cart/
+│ │ ├── DefaultLayout/
+│ │ ├── ProductDetails/
 │ └ └── Products/
 ├── context/
 ├── hook/
