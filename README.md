@@ -2,6 +2,8 @@
 
 This web application was developed as part of a technical challenge for Inditex. It allows users to search for products, view product details, choose color and storage options, and add items to the shopping cart.
 
+https://inditex-zara-challenge.vercel.app/
+
 ---
 
 ## 🚀 Node Version
