@@ -1,5 +1,5 @@
 .item {
-  min-width: 100%;
+  min-width: 25rem;
   padding: 1.6rem;
   display: flex;
   flex-direction: column;
