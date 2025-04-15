@@ -1,7 +1,7 @@
 import LogoIcon from "../../../assets/logo.svg?react";
 import BagIcon from "../../../assets/bag-icon.svg?react";
-import style from "./Header.module.css";
 import Button from "../../atoms/Button";
+import style from "./Header.module.css";
 
 interface HeaderProps {
   cart?: boolean;

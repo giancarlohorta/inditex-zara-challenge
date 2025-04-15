@@ -25,7 +25,7 @@ const SearchArea = ({ count, onEnter }: SearchAreaProps) => {
             className={style["search-result"]}
           />
         )}
-        <FilterColor onIsOpen={(state) => setIsOpen(state)} />
+        <FilterColor onIsOpen={(state) => state && setIsOpen(state)} />
       </div>
     </section>
   );

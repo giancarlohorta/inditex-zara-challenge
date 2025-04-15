@@ -7,7 +7,7 @@ import ButtonColor from "../../atoms/ButtonColor";
 import { SelectedType } from "../../../types/product";
 
 interface FilterColorProps {
-  onIsOpen: (isOpen: boolean) => void;
+  onIsOpen: (isOpen?: boolean) => void;
 }
 
 const FilterColor = ({ onIsOpen }: FilterColorProps) => {
@@ -46,7 +46,7 @@ const FilterColor = ({ onIsOpen }: FilterColorProps) => {
             className={style["open-button"]}
           >
             <Typography
-              content={`FILTAR ${selected.hexCode ? "(1)" : ""}`}
+              content={`FILTRAR ${selected.hexCode ? "(1)" : ""}`}
               size="sm"
               weight="light"
               as="p"
