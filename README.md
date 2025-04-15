@@ -21,6 +21,7 @@ https://inditex-zara-challenge.vercel.app/
 - **Vitest + Testing Library + Axios Mock Adapter** (unit testing)
 - **ESLint + Prettier**
 - **CSS Modules + CSS Variables**
+- **Storybook**
 
 ---
 
@@ -77,4 +78,5 @@ npm run preview       # Preview the production build
 npm run lint          # Run ESLint
 npm run test          # Run unit tests in watch mode
 npm run test:coverage # Generate coverage report
+npm run storybook     # Run Storybook
 ```
