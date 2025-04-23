@@ -1,5 +1,6 @@
 import LogoIcon from "../../../assets/logo.svg?react";
-import BagIcon from "../../../assets/bag-icon.svg?react";
+import BagIcon from "../../../assets/bag-icon-active.svg?react";
+import BagIconEmpty from "../../../assets/bag-icon.svg?react";
 import Button from "../../atoms/Button";
 import style from "./Header.module.css";
 
@@ -10,6 +11,7 @@ interface HeaderProps {
 
 const Header = ({ cart, count }: HeaderProps) => {
   const showCount = typeof count === "number";
+  const emptyCart = count === 0;
   return (
     <header aria-label="Main Header" className={style.header}>
       <Button type="link" className={style.logo} link="/">
@@ -19,7 +21,19 @@ const Header = ({ cart, count }: HeaderProps) => {
       {cart && (
         <nav aria-label="Main navigation" role="navigation">
           <Button type="link" className={style.logo} link="/cart">
-            <BagIcon role="img" aria-label="Shopping cart" focusable="false" />
+            {emptyCart ? (
+              <BagIconEmpty
+                role="img"
+                aria-label="Shopping cart empty"
+                focusable="false"
+              />
+            ) : (
+              <BagIcon
+                role="img"
+                aria-label="Shopping cart"
+                focusable="false"
+              />
+            )}
             {showCount && (
               <span
                 className={style.count}
