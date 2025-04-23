@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "../services/products";
 import { useState } from "react";
+import { uniqueProducts } from "../utils";
 
 export const useProducts = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -10,13 +11,15 @@ export const useProducts = () => {
     queryFn: () => getProducts(searchValue),
   });
 
+  const cleanProductList = uniqueProducts(data);
+
   const handleSearch = (value: string) => setSearchValue(value);
 
   const isEmpty = Array.isArray(data) && data.length === 0;
   const count = data?.length ?? 0;
 
   return {
-    data,
+    data: cleanProductList,
     isLoading,
     error,
     handleSearch,

@@ -4,7 +4,7 @@ import Typography from "../../atoms/Typography";
 import ClearIcon from "../../../assets/close.svg?react";
 import style from "./FilterColor.module.css";
 import ButtonColor from "../../atoms/ButtonColor";
-import { SelectedType } from "../../../types/product";
+import { SelectedType } from "../../../types/productDetail";
 
 interface FilterColorProps {
   onIsOpen: (isOpen?: boolean) => void;

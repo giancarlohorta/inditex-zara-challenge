@@ -1,7 +1,7 @@
 // SpecsList.stories.tsx
 import type { Meta, StoryObj } from "@storybook/react";
 import SpecsList from "./SpecsList";
-import { ProductDetailsData } from "@/types/product";
+import { ProductDetailsData } from "../../../types/productDetail";
 
 const meta: Meta<typeof SpecsList> = {
   title: "Components/Organisms/SpecsList",

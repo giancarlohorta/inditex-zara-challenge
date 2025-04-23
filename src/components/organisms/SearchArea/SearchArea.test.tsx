@@ -37,7 +37,7 @@ describe("SearchArea", () => {
     it("hides result count when filter is opened", () => {
       setup(3);
 
-      const filterToggle = screen.getByRole("button", { name: /filtar/i });
+      const filterToggle = screen.getByRole("button", { name: /filtrar/i });
       fireEvent.click(filterToggle);
 
       expect(screen.queryByText(/3 results/i)).not.toBeInTheDocument();

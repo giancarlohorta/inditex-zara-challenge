@@ -1,4 +1,4 @@
-import { ProductDetailsData } from "../../../types/product";
+import { ProductDetailsData } from "../../../types/productDetail";
 import { formatSpecList, humanizeKey } from "../../../utils";
 import Typography from "../../atoms/Typography";
 import style from "./SpecsList.module.css";

@@ -1,4 +1,5 @@
-import { Product, ProductDetailsData } from "../types/product";
+import { ProductDetailsData } from "../types/productDetail";
+import { Product } from "../types/product";
 import { api } from "./api";
 
 export const getProducts = async (search: string = ""): Promise<Product[]> => {
@@ -20,7 +21,7 @@ export const getProductDetails = async (
     const { data } = await api.get<ProductDetailsData>(`/products/${id}`);
     return data;
   } catch (error) {
-    console.error(`Erro ao buscar detalhes do produto com id ${id}:`, error);
+    console.error(`Failed to retrieve product details for id ${id}:`, error);
     throw error;
   }
 };

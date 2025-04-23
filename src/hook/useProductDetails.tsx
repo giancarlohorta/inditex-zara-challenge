@@ -3,7 +3,7 @@ import { getProductDetails } from "../services/products";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "./useCart";
-import { SelectedType } from "../types/product";
+import { SelectedType } from "../types/productDetail";
 
 export const useProductDetails = (id?: string) => {
   const navigate = useNavigate();

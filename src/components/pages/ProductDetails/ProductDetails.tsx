@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import DefaultLayout from "../DefaultLayout";
 import { useProductDetails } from "../../../hook/useProductDetails";
 import Typography from "../../atoms/Typography";
-import { formatText } from "../../../utils";
+import { formatText, uniqueProducts } from "../../../utils";
 import BackIcon from "../../../assets/back.svg?react";
 import clsx from "clsx";
 import SpecsList from "../../organisms/SpecsList";
@@ -154,7 +154,9 @@ const ProductDetails = () => {
                 color="primary"
                 as="h2"
               />
-              <ScrollSimilarProducts list={data.similarProducts} />
+              <ScrollSimilarProducts
+                list={uniqueProducts(data.similarProducts)}
+              />
             </div>
           </>
         )}

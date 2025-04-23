@@ -1,7 +1,7 @@
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect, beforeEach } from "vitest";
 import { useCartData } from "./useCartData";
-import { CartItem } from "../types/product";
+import { CartItem } from "../types/productCart";
 import { mockCartProduct } from "../mocks/cartProduct";
 
 const CART_KEY = "my-cart";
@@ -99,7 +99,11 @@ describe("useCartData", () => {
     });
 
     act(() => {
-      result.current.removeFromCart(mockCartProduct.id);
+      result.current.removeFromCart(
+        mockCartProduct.id,
+        mockCartProduct.capacity,
+        mockCartProduct.color
+      );
     });
 
     expect(result.current.cart).toEqual([]);

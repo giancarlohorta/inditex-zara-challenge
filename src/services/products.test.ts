@@ -50,4 +50,20 @@ describe("products service", () => {
     await expect(getProducts()).rejects.toThrowError();
     consoleErrorMock.mockRestore();
   });
+
+  it("should throw error if product details request fails", async () => {
+    const productId = "123";
+    const consoleErrorMock = vi
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
+    mock.onGet(`/products/${productId}`).reply(500);
+
+    await expect(getProductDetails(productId)).rejects.toThrowError();
+
+    expect(consoleErrorMock).toHaveBeenCalledWith(
+      `Failed to retrieve product details for id ${productId}:`,
+      expect.any(Error)
+    );
+    consoleErrorMock.mockRestore();
+  });
 });

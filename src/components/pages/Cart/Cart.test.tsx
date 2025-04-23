@@ -42,7 +42,11 @@ describe("Cart", () => {
     const removeButton = screen.getByRole("button", { name: /Eliminar/i });
     fireEvent.click(removeButton);
 
-    expect(mockRemoveFromCart).toHaveBeenCalledWith(mockCartProduct.id);
+    expect(mockRemoveFromCart).toHaveBeenCalledWith(
+      mockCartProduct.id,
+      mockCartProduct.capacity,
+      mockCartProduct.color
+    );
   });
 
   it("should display the total cart value", () => {

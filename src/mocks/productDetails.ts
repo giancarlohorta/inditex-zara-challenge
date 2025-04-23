@@ -1,4 +1,4 @@
-import { ProductDetailsData } from "../types/product";
+import { ProductDetailsData } from "../types/productDetail";
 
 export const mockProductDetailsData: ProductDetailsData = {
   id: "1",

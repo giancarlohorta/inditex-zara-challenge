@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ButtonColor from "./ButtonColor";
-import { ColorOption } from "../../../types/product";
+import { ColorOption } from "../../../types/productDetail";
 
 const meta: Meta<typeof ButtonColor> = {
   title: "Components/Atoms/ButtonColor",

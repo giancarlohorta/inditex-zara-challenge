@@ -1,4 +1,4 @@
-import { CartItem } from "../types/product";
+import { CartItem } from "../types/productCart";
 import { useState, useEffect, useCallback } from "react";
 
 const CART_KEY = "my-cart";
@@ -46,9 +46,17 @@ export const useCartData = () => {
     });
   }, []);
 
-  const removeFromCart = useCallback((id: string) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
-  }, []);
+  const removeFromCart = useCallback(
+    (id: string, capacity: string, color: string) => {
+      setCart((prev) =>
+        prev.filter(
+          (item) =>
+            item.id !== id || item.capacity !== capacity || item.color !== color
+        )
+      );
+    },
+    []
+  );
 
   const clearCart = useCallback(() => {
     setCart([]);

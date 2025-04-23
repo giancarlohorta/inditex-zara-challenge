@@ -52,7 +52,9 @@ const Cart = () => {
                 />
                 <button
                   className={style.remove}
-                  onClick={() => removeFromCart(item.id)}
+                  onClick={() =>
+                    removeFromCart(item.id, item.capacity, item.color)
+                  }
                 >
                   Eliminar
                 </button>

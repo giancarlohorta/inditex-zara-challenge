@@ -1,5 +1,5 @@
-import { ColorOption, SelectedType } from "../../../types/product";
 import clsx from "clsx";
+import { ColorOption, SelectedType } from "../../../types/productDetail";
 import style from "./ButtonColor.module.css";
 
 interface buttonColorProps {
