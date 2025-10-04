@@ -1,60 +1,17 @@
 import clsx from "clsx";
-import {
-  AnchorHTMLAttributes,
-  ButtonHTMLAttributes,
-  MouseEventHandler,
-  ReactNode,
-} from "react";
+import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 import style from "./Button.module.css";
 import { Link } from "react-router-dom";
+import {
+  ButtonAsButton,
+  ButtonAsLink,
+  ButtonPropsBase,
+  DEFAULT_SIZE,
+  DEFAULT_TYPE,
+  DEFAULT_VARIANT,
+} from "./Button.types";
 
-const BUTTON_VARIANTS = {
-  PRIMARY: "primary",
-  SECONDARY: "secondary",
-  GHOST: "ghost",
-} as const;
-
-const BUTTON_SIZES = {
-  DEFAULT: "default",
-  SMALL: "sm",
-  LARGE: "lg",
-} as const;
-
-const BUTTON_TYPES = {
-  BUTTON: "button",
-  SUBMIT: "submit",
-  RESET: "reset",
-} as const;
-
-type ButtonVariant = (typeof BUTTON_VARIANTS)[keyof typeof BUTTON_VARIANTS];
-
-type ButtonSize = (typeof BUTTON_SIZES)[keyof typeof BUTTON_SIZES];
-
-type ButtonType = (typeof BUTTON_TYPES)[keyof typeof BUTTON_TYPES];
-
-type ButtonAsButton = {
-  href?: never;
-  onClick: MouseEventHandler<HTMLButtonElement>;
-};
-
-type ButtonAsLink = {
-  href: string;
-  onClick?: never;
-};
-
-interface ButtonPropsBase {
-  children: ReactNode;
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-  disabled?: boolean;
-  className?: string;
-}
-
-type ButtonProps = ButtonPropsBase & (ButtonAsButton | ButtonAsLink);
-
-const DEFAULT_VARIANT: ButtonVariant = BUTTON_VARIANTS.PRIMARY;
-const DEFAULT_SIZE: ButtonSize = BUTTON_SIZES.DEFAULT;
-const DEFAULT_TYPE: ButtonType = BUTTON_TYPES.BUTTON;
+export type ButtonProps = ButtonPropsBase & (ButtonAsButton | ButtonAsLink);
 
 const Button = ({
   children,
@@ -63,6 +20,7 @@ const Button = ({
   disabled = false,
   className,
   href,
+  type = DEFAULT_TYPE,
   onClick,
   ...props
 }: ButtonProps) => {
@@ -87,7 +45,7 @@ const Button = ({
   }
   return (
     <button
-      type={DEFAULT_TYPE}
+      type={type}
       className={buttonClass}
       disabled={disabled}
       onClick={onClick}

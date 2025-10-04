@@ -12,12 +12,11 @@ const Cart = () => {
     <DefaultLayout>
       <div className={style.container}>
         <Typography
-          content={`CART (${totalCartItems})`}
           size="xl"
           weight="light"
           color="primary"
           as="h1"
-        />
+        >{`CART (${totalCartItems})`}</Typography>
         <div className={style["cart-content"]}>
           {cart.map((item) => (
             <div key={item.id} className={style["cart-item"]}>
@@ -28,28 +27,22 @@ const Cart = () => {
               />
 
               <div className={style["item-details"]}>
+                <Typography size="sm" weight="regular" color="primary" as="h2">
+                  {formatText(item.name)}
+                </Typography>
                 <Typography
-                  content={formatText(item.name)}
-                  size="sm"
-                  weight="regular"
-                  color="primary"
-                  as="h2"
-                />
-                <Typography
-                  content={`${formatText(item.capacity)} | ${formatText(item.color)}`}
                   size="sm"
                   weight="light"
                   color="primary"
                   as="p"
-                />
+                >{`${formatText(item.capacity)} | ${formatText(item.color)}`}</Typography>
                 <Typography
-                  content={`${item.price} EUR`}
                   size="sm"
                   weight="light"
                   color="primary"
                   as="p"
                   className={style["item-price"]}
-                />
+                >{`${item.price} EUR`}</Typography>
                 <button
                   className={style.remove}
                   onClick={() =>
@@ -66,21 +59,21 @@ const Cart = () => {
           {totalCartItems > 0 && (
             <div className={style.checkout}>
               <Typography
-                content={`TOTAL`}
                 size="md"
                 weight="regular"
                 color="primary"
                 as="p"
                 className={style["total-label"]}
-              />
+              >
+                TOTAL
+              </Typography>
               <Typography
-                content={`${totalCart} EUR`}
                 size="md"
                 weight="regular"
                 color="primary"
                 as="p"
                 className={style["total-price"]}
-              />
+              >{`${totalCart} EUR`}</Typography>
             </div>
           )}
           <Button

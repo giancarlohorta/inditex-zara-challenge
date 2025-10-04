@@ -17,13 +17,12 @@ const SearchArea = ({ count, onEnter }: SearchAreaProps) => {
       <div className={style["info-container"]}>
         {!isOpen && (
           <Typography
-            content={`${count} RESULTS`}
             size="sm"
             weight="light"
             color="primary"
             as="p"
             className={style["search-result"]}
-          />
+          >{`${count} RESULTS`}</Typography>
         )}
         <FilterColor onIsOpen={(state) => state && setIsOpen(state)} />
       </div>
