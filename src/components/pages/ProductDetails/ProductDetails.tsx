@@ -20,7 +20,7 @@ const ProductDetails = () => {
   return (
     <DefaultLayout>
       <div className={style["back-container"]}>
-        <Button type="link" className={style["back-button"]} link="/">
+        <Button variant="ghost" className={style["back-button"]} href="/">
           <BackIcon />
           <Typography
             content="BACK"
@@ -129,7 +129,7 @@ const ProductDetails = () => {
                 <Button
                   disabled={!selected.capacity}
                   className={style["add-button"]}
-                  type="primary"
+                  variant="primary"
                   onClick={handleAddToCart}
                 >
                   ADD TO CART
