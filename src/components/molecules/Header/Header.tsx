@@ -14,13 +14,13 @@ const Header = ({ cart, count }: HeaderProps) => {
   const emptyCart = count === 0;
   return (
     <header aria-label="Main Header" className={style.header}>
-      <Button type="link" className={style.logo} link="/">
+      <Button variant="ghost" className={style.logo} href="/">
         <LogoIcon aria-label="MBST logo" role="img" focusable="false" />
       </Button>
 
       {cart && (
         <nav aria-label="Main navigation" role="navigation">
-          <Button type="link" className={style.logo} link="/cart">
+          <Button variant="ghost" className={style.logo} href="/cart">
             {emptyCart ? (
               <BagIconEmpty
                 role="img"

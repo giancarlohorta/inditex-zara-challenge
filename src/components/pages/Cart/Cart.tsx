@@ -83,15 +83,18 @@ const Cart = () => {
               />
             </div>
           )}
-          <Button className={style["footer-button"]} type="secondary" link="/">
+          <Button
+            className={style["footer-button"]}
+            variant="secondary"
+            href="/"
+          >
             CONTINUE SHOPPING
           </Button>
 
           {totalCartItems > 0 && (
             <Button
-              // disabled={!selected.capacity}
               className={style["footer-button"]}
-              type="primary"
+              variant="primary"
               onClick={() => alert("Payment successful!")}
             >
               PAY

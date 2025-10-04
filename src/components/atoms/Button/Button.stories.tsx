@@ -14,7 +14,7 @@ const meta: Meta<typeof Button> = {
   ],
   tags: ["autodocs"],
   argTypes: {
-    type: {
+    variant: {
       description: "Visual style of the button",
       control: { type: "radio" },
       options: ["primary", "secondary", "link"],
@@ -23,7 +23,7 @@ const meta: Meta<typeof Button> = {
       description: "Disables the button",
       control: "boolean",
     },
-    link: {
+    href: {
       description: "If defined, the button becomes a React Router link",
       control: "text",
     },
@@ -49,22 +49,22 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   args: {
     children: "Primary Button",
-    type: "primary",
+    variant: "primary",
   },
 };
 
 export const Secondary: Story = {
   args: {
     children: "Secondary Button",
-    type: "secondary",
+    variant: "secondary",
   },
 };
 
 export const LinkButton: Story = {
   args: {
     children: "I am a Link",
-    type: "link",
-    link: "/example-route",
+    variant: "ghost",
+    href: "/example-route",
   },
 };
 

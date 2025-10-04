@@ -38,7 +38,7 @@ const FilterColor = ({ onIsOpen }: FilterColorProps) => {
       {!isOpen && (
         <div className={style["button-container"]}>
           <Button
-            type="link"
+            variant="ghost"
             onClick={() => {
               setIsOpen(true);
               onIsOpen(true);
@@ -85,7 +85,7 @@ const FilterColor = ({ onIsOpen }: FilterColorProps) => {
             ))}
           </div>
           <Button
-            type="link"
+            variant="ghost"
             onClick={() => {
               setIsOpen(false);
               onIsOpen(false);

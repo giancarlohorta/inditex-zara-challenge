@@ -6,11 +6,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
 }
+
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Variants */
 
 .primary {
   color: var(--color-secondary);
   background-color: var(--color-primary);
+}
+
+.primary:hover:not(:disabled) {
+  opacity: 0.9;
 }
 
 .primary:disabled {
@@ -24,8 +44,23 @@
   border: 0.5px solid var(--color-primary);
 }
 
-.link {
+.secondary:hover:not(:disabled) {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.ghost {
   color: var(--color-primary);
   background-color: transparent;
   border: none;
+}
+
+/* Sizes */
+.sm {
+  padding: 1rem 0;
+  font-size: 1rem;
+}
+
+.lg {
+  padding: 3rem 0;
+  font-size: 1.4rem;
 }
