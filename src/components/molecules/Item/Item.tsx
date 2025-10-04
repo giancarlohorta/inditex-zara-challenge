@@ -30,28 +30,24 @@ const Item = ({ item }: ItemProps) => {
         />
       </div>
       <div className={style.content}>
-        <Typography
-          content={formatText(item.brand)}
-          size="xs"
-          weight="light"
-          color="tertiary"
-          as="p"
-        />
+        <Typography size="xs" weight="light" color="tertiary" as="p">
+          {formatText(item.brand)}
+        </Typography>
         <div className={style.details}>
           <Typography
-            content={formatText(item.name)}
             size="sm"
             weight="light"
             color={isHovered ? "secondary" : "primary"}
             as="p"
-          />
+          >
+            {formatText(item.name)}
+          </Typography>
           <Typography
-            content={`${item.basePrice} EUR`}
             size="sm"
             weight="light"
             color={isHovered ? "secondary" : "primary"}
             as="p"
-          />
+          >{`${item.basePrice} EUR`}</Typography>
         </div>
       </div>
     </Link>

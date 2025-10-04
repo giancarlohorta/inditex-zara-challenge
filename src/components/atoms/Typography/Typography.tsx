@@ -1,23 +1,25 @@
 import clsx from "clsx";
 import style from "./Typography.module.css";
+import {
+  TYPOGRAPHY_CONFIG,
+  TYPOGRAPHY_ELEMENTS,
+  TypographyComponent,
+  TypographyProps,
+} from "./Typography.types";
 
-interface TypographyProps {
-  content: string;
-  className?: string;
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
-  weight?: "light" | "regular" | "bold";
-  color?: "primary" | "secondary" | "tertiary";
-  as?: "p" | "span" | "h1" | "h2" | "h3";
-}
-
-const Typography = ({
-  content,
+const Typography: TypographyComponent = <
+  E extends React.ElementType = typeof TYPOGRAPHY_ELEMENTS.P,
+>({
+  as,
+  children,
+  size = TYPOGRAPHY_CONFIG.defaults.size,
+  weight = TYPOGRAPHY_CONFIG.defaults.weight,
+  color = TYPOGRAPHY_CONFIG.defaults.color,
   className,
-  size = "md",
-  weight = "light",
-  color = "primary",
-  as: Component = "p",
-}: TypographyProps) => {
+  ...props
+}: TypographyProps<E>) => {
+  const Component = as || TYPOGRAPHY_CONFIG.defaults.element;
+
   const classes = clsx(
     style.typography,
     style[`size-${size}`],
@@ -26,7 +28,11 @@ const Typography = ({
     className
   );
 
-  return <Component className={classes}>{content}</Component>;
+  return (
+    <Component className={classes} {...props}>
+      {children}
+    </Component>
+  );
 };
 
 export default Typography;

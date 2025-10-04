@@ -12,20 +12,12 @@ const SpecsList = ({ data }: SpecsListProps) => {
     <ul className={style["specs-list"]}>
       {Object.entries(formatSpecList(data)).map(([key, value]) => (
         <li key={key} className={style["spec-item"]}>
-          <Typography
-            content={humanizeKey(key)}
-            size="sm"
-            weight="light"
-            color="primary"
-            as="p"
-          />
-          <Typography
-            content={value}
-            size="sm"
-            weight="light"
-            color="primary"
-            as="p"
-          />
+          <Typography size="sm" weight="light" color="primary" as="p">
+            {humanizeKey(key)}
+          </Typography>
+          <Typography size="sm" weight="light" color="primary" as="p">
+            {value}
+          </Typography>
         </li>
       ))}
     </ul>

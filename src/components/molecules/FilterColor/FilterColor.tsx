@@ -46,11 +46,10 @@ const FilterColor = ({ onIsOpen }: FilterColorProps) => {
             className={style["open-button"]}
           >
             <Typography
-              content={`FILTRAR ${selected.hexCode ? "(1)" : ""}`}
               size="sm"
               weight="light"
               as="p"
-            />
+            >{`FILTRAR ${selected.hexCode ? "(1)" : ""}`}</Typography>
           </Button>
 
           {selected.hexCode && (
@@ -92,7 +91,9 @@ const FilterColor = ({ onIsOpen }: FilterColorProps) => {
             }}
             className={style["open-button"]}
           >
-            <Typography content="CERRAR" size="sm" weight="light" as="p" />
+            <Typography size="sm" weight="light" as="p">
+              CERRAR
+            </Typography>
           </Button>
         </div>
       )}

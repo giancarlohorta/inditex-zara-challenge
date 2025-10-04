@@ -23,13 +23,14 @@ const ProductDetails = () => {
         <Button variant="ghost" className={style["back-button"]} href="/">
           <BackIcon />
           <Typography
-            content="BACK"
             size="sm"
             weight="light"
             color="primary"
             as="p"
             className={style["back-text"]}
-          />
+          >
+            BACK
+          </Typography>
         </Button>
       </div>
 
@@ -47,32 +48,23 @@ const ProductDetails = () => {
                 />
               </div>
               <div className={style["details-content"]}>
+                <Typography size="xl" weight="light" color="primary" as="h1">
+                  {formatText(data.name)}
+                </Typography>
+                <Typography size="lg" weight="light" color="primary" as="p">
+                  {!selected.price
+                    ? `From ${data.basePrice} EUR`
+                    : `${selected.price} EUR`}
+                </Typography>
                 <Typography
-                  content={formatText(data.name)}
-                  size="xl"
-                  weight="light"
-                  color="primary"
-                  as="h1"
-                />
-                <Typography
-                  content={
-                    !selected.price
-                      ? `From ${data.basePrice} EUR`
-                      : `${selected.price} EUR`
-                  }
-                  size="lg"
-                  weight="light"
-                  color="primary"
-                  as="p"
-                />
-                <Typography
-                  content="Storage ¿hOW MUCH SPACE DO YOU NEED?"
                   size="md"
                   weight="light"
                   color="primary"
                   as="p"
                   className={style["storage-title"]}
-                />
+                >
+                  Storage ¿hOW MUCH SPACE DO YOU NEED?
+                </Typography>
                 <div className={style["container-buttons"]}>
                   {data.storageOptions.map((storage) => (
                     <button
@@ -91,23 +83,25 @@ const ProductDetails = () => {
                       }
                     >
                       <Typography
-                        content={storage.capacity}
                         size="md"
                         weight="light"
                         color="primary"
                         as="p"
-                      />
+                      >
+                        {storage.capacity}
+                      </Typography>
                     </button>
                   ))}
                 </div>
                 <Typography
-                  content="COLOR. PiCK YOUR FAVORITE"
                   size="md"
                   weight="light"
                   color="primary"
                   as="p"
                   className={style["color-title"]}
-                />
+                >
+                  "COLOR. PiCK YOUR FAVORITE"
+                </Typography>
                 <div className={style["container-buttons"]}>
                   {data.colorOptions.map((color) => (
                     <ButtonColor
@@ -119,13 +113,14 @@ const ProductDetails = () => {
                   ))}
                 </div>
                 <Typography
-                  content={selected.colorName}
                   size="sm"
                   weight="light"
                   color="primary"
                   as="p"
                   className={style["color-name"]}
-                />
+                >
+                  {selected.colorName}
+                </Typography>
                 <Button
                   disabled={!selected.capacity}
                   className={style["add-button"]}
@@ -137,23 +132,15 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className={style["specs-content"]}>
-              <Typography
-                content="SPECIFICATIONS"
-                size="lg"
-                weight="light"
-                color="primary"
-                as="h2"
-              />
+              <Typography size="lg" weight="light" color="primary" as="h2">
+                SPECIFICATIONS
+              </Typography>
               <SpecsList data={data} />
             </div>
             <div className={style["similar-content"]}>
-              <Typography
-                content="SIMILAR ITEMS"
-                size="lg"
-                weight="light"
-                color="primary"
-                as="h2"
-              />
+              <Typography size="lg" weight="light" color="primary" as="h2">
+                SIMILAR ITEMS
+              </Typography>
               <ScrollSimilarProducts
                 list={uniqueProducts(data.similarProducts)}
               />
