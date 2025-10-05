@@ -107,8 +107,14 @@ const ProductDetails = () => {
                     <ButtonColor
                       key={color.name}
                       color={color}
-                      selected={selected}
-                      onSelected={handleSelected}
+                      selectedHexCode={selected.hexCode}
+                      onSelected={(data) => {
+                        handleSelected({
+                          hexCode: data.hexCode,
+                          imageUrl: data.imageUrl,
+                          colorName: data.colorName,
+                        });
+                      }}
                     />
                   ))}
                 </div>
