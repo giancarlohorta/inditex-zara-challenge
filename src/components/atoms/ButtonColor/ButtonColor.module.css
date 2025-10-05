@@ -2,7 +2,66 @@
   border: 1px solid var(--color-quinary);
   padding: 2px;
   margin-right: 1.6rem;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.color-button:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  opacity: 0.8;
+}
+
+.color-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.color-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .active {
-  border: 1px solid var(--color-primary);
+  border: 2px solid var(--color-primary);
+  padding: 1px;
+}
+
+.swatch {
+  display: block;
+  border-radius: 2px;
+}
+
+/* Sizes */
+.size-sm {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.size-sm .swatch {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.size-default {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.size-default .swatch {
+  width: 2rem;
+  height: 2rem;
+}
+
+.size-lg {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.size-lg .swatch {
+  width: 2.8rem;
+  height: 2.8rem;
 }

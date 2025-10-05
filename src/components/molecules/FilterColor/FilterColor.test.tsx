@@ -25,7 +25,9 @@ describe("FilterColor component", () => {
     const closeButton = screen.getByRole("button", { name: /cerrar/i });
     expect(closeButton).toBeInTheDocument();
 
-    const colorButton = screen.getByRole("button", { name: "1" });
+    const colorButton = screen.getByRole("button", {
+      name: "Select Gray color",
+    });
     expect(colorButton).toBeInTheDocument();
 
     fireEvent.click(colorButton);
@@ -49,7 +51,9 @@ describe("FilterColor component", () => {
     const openButton = screen.getByRole("button", { name: /filtrar/i });
     fireEvent.click(openButton);
 
-    const colorButton = screen.getByRole("button", { name: "1" });
+    const colorButton = screen.getByRole("button", {
+      name: "Select Gray color",
+    });
     fireEvent.click(colorButton);
   });
 });

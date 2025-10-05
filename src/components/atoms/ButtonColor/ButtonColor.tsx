@@ -1,37 +1,49 @@
 import clsx from "clsx";
-import { ColorOption, SelectedType } from "../../../types/productDetail";
 import style from "./ButtonColor.module.css";
+import { BUTTON_COLOR_CONFIG, buttonColorProps } from "./ButtonColor.types";
 
-interface buttonColorProps {
-  color: ColorOption;
-  selected: ColorOption;
-  onSelected: (color: Partial<SelectedType>) => void;
-}
+const ButtonColor = ({
+  color,
+  selectedHexCode,
+  onSelected,
+  size = BUTTON_COLOR_CONFIG.defaults.size,
+  disabled = false,
+  className,
+}: buttonColorProps) => {
+  const isActive = selectedHexCode === color.hexCode;
 
-const ButtonColor = ({ color, selected, onSelected }: buttonColorProps) => {
+  const stylesButton = clsx(
+    style["color-button"],
+    style[`size-${size}`],
+    isActive && style.active,
+    className
+  );
+
+  const handleClick = () => {
+    if (!disabled) {
+      onSelected({
+        hexCode: color.hexCode,
+        imageUrl: color.imageUrl,
+        colorName: color.name,
+      });
+    }
+  };
+
   return (
     <button
       key={color.name}
-      className={clsx(
-        style["color-button"],
-        selected.hexCode === color.hexCode && style["active"]
-      )}
-      onClick={() =>
-        onSelected({
-          hexCode: color.hexCode,
-          imageUrl: color.imageUrl,
-          colorName: color.name,
-        })
-      }
-      aria-label={color.name}
+      className={stylesButton}
+      onClick={handleClick}
+      aria-label={`Select ${color.name} color`}
+      aria-pressed={isActive}
+      title={color.name}
+      disabled={disabled}
+      type="button"
     >
       <span
-        style={{
-          backgroundColor: color.hexCode,
-          width: "20px",
-          height: "20px",
-          display: "block",
-        }}
+        className={style.swatch}
+        style={{ backgroundColor: color.hexCode }}
+        aria-hidden="true"
       ></span>
     </button>
   );
